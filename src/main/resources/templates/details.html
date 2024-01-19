@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title th:text="${title}">Documet</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" />
+  </head>
+  <body>
+
+    <h1 th:text="${title}"></h1>
+  	<ul>
+  		<li th:text="${user.name}"></li>
+  		<li th:text="${user.lastName}"></li>
+  		<li th:if="${user.email}" th:text="${user.email}"></li>
+  		<li th:if="${user.email == null}" th:text="${'NO tiene email'}"></li>
+	</ul>
+  	<a th:href="@{/lista}">Ver lista</a> <br>
+  	<a th:href="@{/api/details/dto}">Ver DTO</a> <br>
+  	<a th:href="@{/api/list}">Ver list map</a> <br> 
+  	<a th:href="@{'/api/params/path/variable/'+ ${title} }">Ver mensaje</a> <br>
+  	<a th:href="@{/api/params/path/variable/mensaje hard code'}">Ver hard code</a> <br>
+  	<a th:href="@{'/api/params/params/httprequest?message=' + ${title}  + '&amp;code=7908'}">Ver envio url</a> <br> 
+  	<a th:href="@{'/api/params/path/variablemap/' + ${title} +'/8908'}">Ver envio 2</a>
+  </body>
+</html>
